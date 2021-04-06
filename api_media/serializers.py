@@ -10,7 +10,7 @@ class CategorySerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(required=False)
 
     class Meta:
-        exclude = ('id', )
+        exclude = ('id',)
         model = Category
 
     def validate_slug(self, data):
@@ -21,7 +21,7 @@ class GenreSerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(required=False)
 
     class Meta:
-        exclude = ('id', )
+        exclude = ('id',)
         model = Genre
 
     def validate_slug(self, data):
@@ -59,7 +59,7 @@ class TitleSerializer(serializers.ModelSerializer):
             'genre',
             'category',
             'rating',
-            )
+        )
         model = Title
 
     def create(self, validated_data):

@@ -22,4 +22,4 @@ class TitleFilter(django_filters.FilterSet):
             'genre',
             'name',
             'year',
-            ]
+        ]

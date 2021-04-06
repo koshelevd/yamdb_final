@@ -1,9 +1,5 @@
 .gitignore
-.env
-
-
 sent_emails/
-
 .git/*
 env/
 venv/
@@ -20,7 +16,4 @@ __pycache__/
 *.sublime-project
 *.sublime-workspace
 
-media/
-
 db.sqlite3
-tasks

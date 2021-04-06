@@ -1,3 +1,4 @@
+![example workflow](https://github.com/koshelevd/yamdb_final/actions/workflows/main.yml/badge.svg)
 # API "YamDB"
 
 YamDB is project with DB of movies, books and songs reviews.

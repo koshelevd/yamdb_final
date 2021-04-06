@@ -20,16 +20,6 @@ You have to install [Docker Desktop](https://www.docker.com/) in order to run ap
 $ docker-compose up
 ```
 
-## Collect static files
-```
-$ docker-compose run web python manage.py collectstatic
-```
-
-## Apply migrations
-```
-$ docker-compose run web python manage.py migrate
-```
-
 ## Create superuser
 ```
 $ docker-compose exec web python manage.py createsuperuser

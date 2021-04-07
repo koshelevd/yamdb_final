@@ -69,6 +69,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            sudo docker version
             cd ~/code
             sudo docker-compose pull web
             sudo docker-compose down

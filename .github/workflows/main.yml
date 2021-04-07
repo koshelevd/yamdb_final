@@ -59,7 +59,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           overwrite: true
-          source: "./docker-compose.yaml,./nginx"
+          source: "./docker-compose.yaml"
           target: "code"
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -71,7 +71,7 @@ jobs:
           script: |
             sudo docker version
             cd ~/code
-            sudo docker-compose pull web
+            sudo docker-compose pull koshelevd/yamdb
             sudo docker-compose down
             sudo docker-compose up --build -d
   send_message:

@@ -59,7 +59,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           overwrite: true
-          source: 'nginx.conf2, ./docker-compose.yaml, ./.env'
+          source: './nginx_deploy.conf, ./docker-compose.yaml, ./.env, ./static'
           target: 'code'
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master

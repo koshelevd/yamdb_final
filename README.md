@@ -33,3 +33,6 @@ $ docker-compose run web python manage.py shell
 >>> quit()
 $ docker-compose run web python manage.py loaddata fixtures.json
 ```
+
+## Visit deployed project: 
+http://yamdb.koshelev.net/admin

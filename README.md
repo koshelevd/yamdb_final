@@ -7,8 +7,6 @@ YamDB is project with DB of movies, books and songs reviews.
 
 - [Installing](#installing)
 - [Build containers for project](#build-containers-for-project)
-- [Collect static files](#collect-static-files)
-- [Apply migrations](#apply-migrations)
 - [Create superuser](#create-superuser)
 - [Load initial data to database](#load-initial-data-to-database)
 

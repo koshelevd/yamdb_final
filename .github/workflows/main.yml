@@ -50,17 +50,29 @@ jobs:
     needs: build_and_push_to_docker_hub
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     steps:
+      - uses: actions/checkout@v2
+      - name: copy docker-compose.yaml
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          overwrite: true
+          source: "./docker-compose.yaml,./nginx"
+          target: "code"
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
-            sudo docker pull koshelevd/yamdb
-            sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 koshelevd/yamdb
+            cd ~/code
+            sudo docker-compose pull web
+            sudo docker-compose down
+            sudo docker-compose up --build -d
   send_message:
     runs-on: ubuntu-latest
     needs: deploy

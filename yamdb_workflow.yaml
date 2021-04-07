@@ -57,9 +57,12 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull koshelevd/yamdb
-            sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 koshelevd/yamdb
+            sudo docker pull ${{ secrets.USER }}/yamdb
+            id=$(docker create ${{ secrets.USER }}/yamdb)
+            sudo docker cp $id:/yamdb/docker-compose.yaml ~/yamdb/docker-compose.yaml
+            cd ~/yamdb
+            sudo docker-compose rm -v
+            sudo docker-compose up -d --force-recreate
   send_message:
     runs-on: ubuntu-latest
     needs: deploy

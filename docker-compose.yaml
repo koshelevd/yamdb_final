@@ -22,7 +22,7 @@ services:
     volumes:
       - ./static:/code/static
   nginx:
-    image: nginx:alpine:1.19.9
+    image: nginx:alpine
     restart: unless-stopped
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf

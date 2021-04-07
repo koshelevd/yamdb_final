@@ -59,7 +59,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker pull koshelevd/yamdb
-            id=$(docker create ${{ secrets.USER }}/yamdb)
+            id=$(docker create koshelevd/yamdb)
             sudo docker cp $id:/yamdb/docker-compose.yaml ~/yamdb/docker-compose.yaml
             cd ~/yamdb
             sudo docker-compose rm -v

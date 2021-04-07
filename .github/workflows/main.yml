@@ -58,7 +58,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull ${{ secrets.USER }}/yamdb
+            sudo docker pull koshelevd/yamdb
             id=$(docker create ${{ secrets.USER }}/yamdb)
             sudo docker cp $id:/yamdb/docker-compose.yaml ~/yamdb/docker-compose.yaml
             cd ~/yamdb

@@ -1,7 +1,7 @@
 ![YAMdb workflow](https://github.com/koshelevd/yamdb_final/actions/workflows/main.yml/badge.svg)
-# API "YamDB"
+# CI/CD API "Yamdb"
 
-YamDB is project with DB of movies, books and songs reviews.
+Set up CI/CD processes for [Yamdb project](https://github.com/koshelevd/api_yamdb)
 
 ## Table of contents
 
